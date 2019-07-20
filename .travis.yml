@@ -12,6 +12,7 @@ addons:
     packages:
       - squashfs-tools
       - genisoimage
+      - zsync
   
 script:
   - bash ./remaster.sh |& tee log.txt
