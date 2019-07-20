@@ -95,7 +95,8 @@ sudo mkisofs \
     -b isolinux/isolinux.bin \
     -c isolinux/boot.cat \
     -no-emul-boot -boot-load-size 4 -boot-info-table \
-	-o ../custom_$(basename "$URL") .
+	-o ../custom-desktop-amd64.iso .
+
 cd ..
 
 rm original.iso
