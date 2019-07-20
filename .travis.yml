@@ -1,7 +1,5 @@
-# This provides us with GCC binary support so we can run bash
 dist: trusty
 language: generic
-
 
 git:
   depth: 1
@@ -15,17 +13,3 @@ before_deploy:
   - sudo rm -f meilix-original.iso
   - export image_name="`echo *.iso`"
   - cat *.iso > "/home/travis/${image_name}"
-  - curl --upload-file /home/travis/${image_name} https://transfer.sh/Meilix.ISO 
-
-deploy:
-   provider: script
-   script: curl --upload-file /home/travis/${image_name} https://transfer.sh/Meilix.ISO
-   on:
-         branch: generator
-    
-after_deploy:
-  - cd mail-scripts && ./mail.py
-  
-after_failure:
-  - cd mail-scripts && ./mail-fail.py
-
