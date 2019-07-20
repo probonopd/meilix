@@ -4,7 +4,7 @@ sudo apt update
 sudo apt-get -y install -qq squashfs-tools genisoimage
 
 echo "Download the ISO to be customized..."
-wget -q http://cdimage.ubuntu.com/lubuntu/releases/16.04/release/lubuntu-16.04.6-desktop-amd64.iso
+wget -q http://cdimage.ubuntu.com/lubuntu/releases/18.10/release/lubuntu-18.10-desktop-amd64.iso
 
 mv *.iso original.iso
 
@@ -97,4 +97,7 @@ sudo mkisofs \
 cd ..
 
 rm original.iso
+
+zsyncmake *.iso
+
 ls -lh *.iso
