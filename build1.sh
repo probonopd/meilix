@@ -84,7 +84,6 @@ exit
 HERE
 
 cd extract-cd 	
-
 sudo mkisofs \
     -V "Custom OS" \
     -r -cache-inodes -J -l \
@@ -92,5 +91,6 @@ sudo mkisofs \
     -c isolinux/boot.cat \
     -no-emul-boot -boot-load-size 4 -boot-info-table \
 	-o ../custom_lubuntu-16.04.6-desktop-amd64.iso .
+cd ..
 
 ls -lh *.iso
