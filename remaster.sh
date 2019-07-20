@@ -44,6 +44,7 @@ chmod +x set-wallpaper.sh && ./set-wallpaper.sh && rm ./set-wallpaper.sh
 
 echo "In chroot: Removing packages..."
 apt-get -y remove libreoffice-* onboard-*
+apt-get -y autoremove
 
 #echo "In chroot: Installing packages..."
 #apt-yet -y install libreoffice-* onboard-*
