@@ -3,7 +3,7 @@
 sudo apt-get install -qq squashfs-tools genisoimage
 #downloading the ISO to edit
 
-wget -q https://github.com/fossasia/meilix/releases/download/untagged-ec090eade53280435857/meilix-xenial-20180202-i386.iso
+wget -q http://cdimage.ubuntu.com/xubuntu/releases/16.04/release/xubuntu-16.04.6-desktop-amd64.iso
 
 mv *.iso meilix-original.iso
 #exit on any error
@@ -80,9 +80,9 @@ HERE
 cd extract-cd 	
 
 sudo mkisofs \
-    -V "Custom Meilix" \
+    -V "Custom OS" \
     -r -cache-inodes -J -l \
     -b isolinux/isolinux.bin \
     -c isolinux/boot.cat \
     -no-emul-boot -boot-load-size 4 -boot-info-table \
-	-o ../meilix-i386-custom.iso .
+	-o ../custom_xubuntu-16.04.6-desktop-amd64.iso .
