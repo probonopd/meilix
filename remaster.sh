@@ -6,12 +6,12 @@ sudo apt-get -y install -qq squashfs-tools genisoimage
 echo "Download the ISO to be customized..."
 wget -q http://cdimage.ubuntu.com/lubuntu/releases/16.04/release/lubuntu-16.04.6-desktop-amd64.iso
 
-mv *.iso meilix-original.iso
+mv *.iso original.iso
 
 echo "Mount the ISO..."
 
 mkdir mnt
-sudo mount -o loop,ro meilix-original.iso mnt/
+sudo mount -o loop,ro original.iso mnt/
 
 echo "Extract .iso contents into dir 'extract-cd'..."
 
@@ -96,4 +96,5 @@ sudo mkisofs \
 	-o ../custom_lubuntu-16.04.6-desktop-amd64.iso .
 cd ..
 
+rm original.iso
 ls -lh *.iso
