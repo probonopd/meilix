@@ -36,21 +36,28 @@ sudo mount --bind /dev/ edit/dev
 echo "Moving the script to chroot..."
 sudo mv set-wallpaper.sh edit/set-wallpaper.sh
 
+echo "Entering chroot..."
+
 sudo chroot edit <<EOF
 
-echo "* Change host name..."
+echo "In chroot: Change host name..."
 hostname ${TRAVIS_TAG}
 
-echo "* Run customization script..."
+echo "In chroot: Run customization script..."
 ./browser.sh
 rm browser.sh
 chmod +x set-wallpaper.sh && ./set-wallpaper.sh
 
-echo "* Delete temporary files..."
+echo "In chroot: Remove LibreOffice..."
+apt-yet -y remove libreoffice-*
+
+echo "In chroot: Delete temporary files..."
 
 rm -rf /tmp/* ~/.bash_history
 exit
 EOF
+
+echo "Exiting chroot..."
 
 sudo umount edit/dev
 
