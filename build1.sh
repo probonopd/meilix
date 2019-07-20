@@ -49,7 +49,7 @@ rm browser.sh
 chmod +x set-wallpaper.sh && ./set-wallpaper.sh
 
 echo "In chroot: Removing packages..."
-apt-yet -y remove libreoffice-* onboard-*
+apt-get -y remove libreoffice-* onboard-*
 
 #echo "In chroot: Installing packages..."
 #apt-yet -y install libreoffice-* onboard-*
