@@ -1,8 +1,5 @@
 #!/bin/bash
 
-sudo apt update
-sudo apt-get -y install -qq squashfs-tools genisoimage
-
 echo "Download the ISO to be customized..."
 URL=http://cdimage.ubuntu.com/lubuntu/releases/18.10/release/lubuntu-18.10-desktop-amd64.iso
 wget -q "$URL"
