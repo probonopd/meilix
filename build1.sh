@@ -23,17 +23,13 @@ echo "Extract the SquashFS filesystem..."
 sudo unsquashfs -n mnt/casper/filesystem.squashfs
 sudo mv squashfs-root edit
 
-sudo su <<EOF
-mv browser.sh edit/browser.sh
-EOF
-
 echo "Prepare chroot..."
 
 sudo mount -o bind /run/ edit/run
 sudo cp /etc/hosts edit/etc/
 sudo mount --bind /dev/ edit/dev
 
-echo "Moving the script to chroot..."
+echo "Moving customization script to chroot..."
 sudo mv set-wallpaper.sh edit/set-wallpaper.sh
 
 echo "Entering chroot..."
@@ -44,9 +40,7 @@ echo "In chroot: Change host name..."
 hostname ${TRAVIS_TAG}
 
 echo "In chroot: Run customization script..."
-./browser.sh
-rm browser.sh
-chmod +x set-wallpaper.sh && ./set-wallpaper.sh
+chmod +x set-wallpaper.sh && ./set-wallpaper.sh && rm ./set-wallpaper.sh
 
 echo "In chroot: Removing packages..."
 apt-get -y remove libreoffice-* onboard-*
