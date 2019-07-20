@@ -11,7 +11,7 @@ mv *.iso meilix-original.iso
 echo "Mount the ISO..."
 
 mkdir mnt
-sudo mount -o loop meilix-original.iso mnt/
+sudo mount -o loop,ro meilix-original.iso mnt/
 
 echo "Extract .iso contents into dir 'extract-cd'..."
 
