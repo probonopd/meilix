@@ -28,7 +28,7 @@ sudo cp /etc/hosts edit/etc/
 sudo mount --bind /dev/ edit/dev
 
 echo "Moving customization script to chroot..."
-sudo mv set-wallpaper.sh edit/set-wallpaper.sh
+sudo mv customize.sh edit/customize.sh
 
 echo "Entering chroot..."
 
@@ -38,7 +38,7 @@ echo "In chroot: Change host name..."
 hostname ${TRAVIS_TAG}
 
 echo "In chroot: Run customization script..."
-chmod +x set-wallpaper.sh && ./set-wallpaper.sh && rm ./set-wallpaper.sh
+chmod +x customize.sh && ./customize.sh && rm ./customize.sh
 
 echo "In chroot: Removing packages..."
 apt-get -y remove libreoffice-* onboard-*
