@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 #packages required to edit
-sudo apt-get install -qq squashfs-tools genisoimage
+sudo apt update
+sudo apt-get -y install -qq squashfs-tools genisoimage
 #downloading the ISO to edit
 
-wget -q http://cdimage.ubuntu.com/xubuntu/releases/16.04/release/xubuntu-16.04.6-desktop-amd64.iso
+wget -q http://cdimage.ubuntu.com/lubuntu/releases/16.04/release/lubuntu-16.04.6-desktop-amd64.iso
 
 mv *.iso meilix-original.iso
 #exit on any error
@@ -85,4 +86,4 @@ sudo mkisofs \
     -b isolinux/isolinux.bin \
     -c isolinux/boot.cat \
     -no-emul-boot -boot-load-size 4 -boot-info-table \
-	-o ../custom_xubuntu-16.04.6-desktop-amd64.iso .
+	-o ../custom_lubuntu-16.04.6-desktop-amd64.iso .
