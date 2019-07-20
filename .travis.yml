@@ -1,10 +1,17 @@
+os: linux
 dist: trusty
 language: generic
+sudo: required
 
 git:
   depth: 1
 
-sudo: required
+addons:
+  apt:
+    update: false
+    packages:
+      - squashfs-tools
+      - genisoimage
   
 script:
   - bash ./remaster.sh |& tee log.txt
