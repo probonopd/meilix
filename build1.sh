@@ -48,8 +48,17 @@ echo "In chroot: Run customization script..."
 rm browser.sh
 chmod +x set-wallpaper.sh && ./set-wallpaper.sh
 
-echo "In chroot: Remove LibreOffice..."
-apt-yet -y remove libreoffice-*
+echo "In chroot: Removing packages..."
+apt-yet -y remove libreoffice-* onboard-*
+
+#echo "In chroot: Installing packages..."
+#apt-yet -y install libreoffice-* onboard-*
+
+echo "In chroot: Install NVidia drivers..."
+
+sudo add-apt-repository -y ppa:graphics-drivers/ppa
+sudo apt update
+sudo apt install nvidia-415
 
 echo "In chroot: Delete temporary files..."
 
