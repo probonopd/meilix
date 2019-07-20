@@ -50,11 +50,11 @@ apt-get -y autoremove
 #echo "In chroot: Installing packages..."
 #apt-yet -y install libreoffice-* onboard-*
 
-# echo "In chroot: Install NVidia drivers..."
-#
-# sudo add-apt-repository -y ppa:graphics-drivers/ppa
-# sudo apt update
-# sudo apt install nvidia-415
+echo "In chroot: Install NVidia drivers..."
+
+sudo add-apt-repository -y ppa:graphics-drivers/ppa
+sudo apt update
+sudo apt-get -y install libcuda1-430 # nvidia-415
 
 echo "In chroot: Delete temporary files..."
 
