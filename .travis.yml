@@ -16,7 +16,6 @@ addons:
   
 script:
   - bash -ex ./remaster.sh |& tee log.txt
-  - sudo rm -f *original.iso
 
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
