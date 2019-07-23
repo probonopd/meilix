@@ -15,7 +15,7 @@ addons:
       - zsync
   
 script:
-  - bash ./remaster.sh |& tee log.txt
+  - bash -ex ./remaster.sh |& tee log.txt
   - sudo rm -f *original.iso
 
 after_success:
