@@ -98,6 +98,6 @@ cd ..
 
 rm original.iso
 
-zsyncmake -u *.iso
+zsyncmake *.iso
 
 ls -lh *.iso
