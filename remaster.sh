@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Download the ISO to be customized..."
-URL=http://cdimage.ubuntu.com/lubuntu/releases/18.10/release/lubuntu-18.10-desktop-amd64.iso
+URL=http://cdimage.ubuntu.com/xubuntu/releases/18.04/release/xubuntu-18.04.2-desktop-amd64.iso
 wget -q "$URL"
 
 mv *.iso original.iso
