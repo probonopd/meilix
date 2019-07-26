@@ -30,6 +30,7 @@ sudo mount -t proc none edit/proc
 sudo mount -o bind /run/ edit/run
 sudo cp /etc/hosts edit/etc/
 # sudo mount --bind /dev/ edit/dev
+sudo cp -vr /etc/resolvconf edit/etc/resolvconf
 
 echo "Moving customization script to chroot..."
 sudo mv customize.sh edit/customize.sh
