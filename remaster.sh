@@ -31,6 +31,7 @@ sudo mount -o bind /run/ edit/run
 sudo cp /etc/hosts edit/etc/
 # sudo mount --bind /dev/ edit/dev
 # sudo cp -vr /etc/resolvconf edit/etc/resolvconf
+sudo rm -rf edit/etc/resolv.conf || true
 sudo cp /etc/resolv.conf edit/etc/
 
 echo "Moving customization script to chroot..."
@@ -65,6 +66,7 @@ sudo apt-get -y install nvidia-driver-396 nvidia-settings
 # sudo apt-get -y install libcuda1-396 # nvidia-415
 
 echo "In chroot: Delete temporary files..."
+( cd /etc ; sudo rm resolv.conf ; sudo ln -s ../run/systemd/resolve/stub-resolv.conf resolv.conf )
 
 rm -rf /tmp/* ~/.bash_history
 exit
@@ -76,7 +78,6 @@ echo "Exiting chroot..."
 sudo umount -lfr edit/proc
 sudo umount -lfr edit/sys
 sudo umount -lfr edit/dev
-sudo rm edit/etc/resolv.conf
 
 echo "Repacking..."
 
