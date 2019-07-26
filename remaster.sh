@@ -23,9 +23,13 @@ sudo mv squashfs-root edit
 
 echo "Prepare chroot..."
 
+# Mount needed pseudo-filesystems for the chroot
+sudo mount --rbind /sys edit/sys
+sudo mount --rbind /dev edit/dev
+sudo mount -t proc none edit/proc
 sudo mount -o bind /run/ edit/run
 sudo cp /etc/hosts edit/etc/
-sudo mount --bind /dev/ edit/dev
+# sudo mount --bind /dev/ edit/dev
 
 echo "Moving customization script to chroot..."
 sudo mv customize.sh edit/customize.sh
@@ -66,7 +70,10 @@ EOF
 
 echo "Exiting chroot..."
 
-sudo umount edit/dev
+# Unmount pseudo-filesystems for the chroot
+sudo umount -lfr edit/proc
+sudo umount -lfr edit/sys
+sudo umount -lfr edit/dev
 
 echo "Repacking..."
 
