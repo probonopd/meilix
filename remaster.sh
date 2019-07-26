@@ -51,26 +51,19 @@ echo "In chroot: Removing packages..."
 apt-get -y remove libreoffice-* gigolo thunderbird pidgin 
 apt-get -y autoremove
 
-echo "In chroot: Installing b43 packages..."
-sudo apt-get -y install b43-fwcutter 
-sudo apt-get -y --reinstall install bcmwl-kernel-source
-
 echo "In chroot: Installing NVidia drivers..."
-
 sudo -E add-apt-repository -y ppa:graphics-drivers
-# Ugly workaround because the line before does not work
-# sudo bash -c 'echo "deb http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main" > /etc/apt/sources.list.d/graphics-drivers-ubuntu-ppa-cosmic.list'
+sudo apt-get -y install nvidia-340 nvidia-settings # run ubuntu-drivers devices on a local machine on this OS to find out the recmomended versions
 
-sudo apt update
-# sudo apt-get -y install nvidia-driver-396 nvidia-settings
+echo "In chroot: Disabling nouveau..."
 sudo apt-get -y purge xserver-xorg-video-nouveau || true
-sudo apt-get -y install nvidia-430 nvidia-settings # run ubuntu-drivers devices on a local machine on this OS to find out the recmomended versions
 # https://linuxconfig.org/how-to-disable-nouveau-nvidia-driver-on-ubuntu-18-04-bionic-beaver-linux
 sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 
-# https://www.pcsuggest.com/install-nvidia-drivers-ubuntu/ says # sudo apt-get -y install nvidia-378 nvidia-settings
-# sudo apt-get -y install libcuda1-396 # nvidia-415
+echo "In chroot: Installing b43 packages..."
+sudo apt-get -y install b43-fwcutter 
+sudo apt-get -y --reinstall install bcmwl-kernel-source
 
 echo "In chroot: Delete temporary files..."
 ( cd /etc ; sudo rm resolv.conf ; sudo ln -s ../run/systemd/resolve/stub-resolv.conf resolv.conf )
