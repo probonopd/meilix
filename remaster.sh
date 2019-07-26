@@ -62,8 +62,8 @@ sudo -E add-apt-repository -y ppa:graphics-drivers
 
 sudo apt update
 # sudo apt-get -y install nvidia-driver-396 nvidia-settings
-sudo apt-get -y purge xserver-xorg-video-nouveau
-sudo apt-get -y install nvidia-current nvidia-settings
+sudo apt-get -y purge xserver-xorg-video-nouveau || true
+sudo apt-get -y install nvidia-340 nvidia-settings # run ubuntu-drivers devices on a local machine on this OS to find out the recmomended versions
 
 # https://www.pcsuggest.com/install-nvidia-drivers-ubuntu/ says # sudo apt-get -y install nvidia-378 nvidia-settings
 # sudo apt-get -y install libcuda1-396 # nvidia-415
