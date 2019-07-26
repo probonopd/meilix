@@ -49,7 +49,10 @@ apt-get -y autoremove
 
 echo "In chroot: Install NVidia drivers..."
 
-sudo add-apt-repository -y ppa:graphics-drivers
+# sudo -E add-apt-repository -y ppa:graphics-drivers
+# Ugly workaround because the line before does not work
+sudo bash -c 'echo "deb http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main" > /etc/apt/sources.list.d/graphics-drivers-ubuntu-ppa-cosmic.list'
+
 sudo apt update
 sudo apt-get -y install nvidia-driver-396 nvidia-settings
 # https://www.pcsuggest.com/install-nvidia-drivers-ubuntu/ says # sudo apt-get -y install nvidia-378 nvidia-settings
