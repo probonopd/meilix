@@ -48,13 +48,14 @@ echo "In chroot: Run customization script..."
 chmod +x customize.sh && ./customize.sh && rm ./customize.sh
 
 echo "In chroot: Removing packages..."
-apt-get -y remove libreoffice-* onboard-*
+apt-get -y remove libreoffice-* gigolo thunderbird pidgin 
 apt-get -y autoremove
 
-#echo "In chroot: Installing packages..."
-#apt-yet -y install libreoffice-* onboard-*
+echo "In chroot: Installing b43 packages..."
+sudo apt-get -y install b43-fwcutter 
+sudo apt-get -y --reinstall install bcmwl-kernel-source
 
-echo "In chroot: Install NVidia drivers..."
+echo "In chroot: Installing NVidia drivers..."
 
 sudo -E add-apt-repository -y ppa:graphics-drivers
 # Ugly workaround because the line before does not work
