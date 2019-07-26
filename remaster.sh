@@ -30,7 +30,8 @@ sudo mount -t proc none edit/proc
 sudo mount -o bind /run/ edit/run
 sudo cp /etc/hosts edit/etc/
 # sudo mount --bind /dev/ edit/dev
-sudo cp -vr /etc/resolvconf edit/etc/resolvconf
+# sudo cp -vr /etc/resolvconf edit/etc/resolvconf
+sudo cp /etc/resolv.conf edit/etc/
 
 echo "Moving customization script to chroot..."
 sudo mv customize.sh edit/customize.sh
@@ -75,6 +76,7 @@ echo "Exiting chroot..."
 sudo umount -lfr edit/proc
 sudo umount -lfr edit/sys
 sudo umount -lfr edit/dev
+sudo rm edit/etc/resolv.conf
 
 echo "Repacking..."
 
