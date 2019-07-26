@@ -51,7 +51,8 @@ echo "In chroot: Install NVidia drivers..."
 
 sudo add-apt-repository -y ppa:graphics-drivers/ppa
 sudo apt update
-sudo apt-get -y install libcuda1-430 # nvidia-415
+sudo apt-get -y install nvidia-driver-396
+# sudo apt-get -y install libcuda1-396 # nvidia-415
 
 echo "In chroot: Delete temporary files..."
 
