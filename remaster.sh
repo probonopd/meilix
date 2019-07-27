@@ -61,9 +61,12 @@ sudo apt-get -y purge xserver-xorg-video-nouveau || true
 sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 
-echo "In chroot: Installing b43 packages..."
+echo "In chroot: Installing proper Broadcom driver..."
 sudo apt-get -y install b43-fwcutter 
 sudo apt-get -y --reinstall install bcmwl-kernel-source
+
+echo "In chroot: Disabling b43 which makes the screen flicker..."
+sudo bash -c "echo blacklist b43 > /etc/modprobe.d/blacklist-b43.conf"
 
 echo "In chroot: Delete temporary files..."
 ( cd /etc ; sudo rm resolv.conf ; sudo ln -s ../run/systemd/resolve/stub-resolv.conf resolv.conf )
