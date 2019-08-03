@@ -88,7 +88,7 @@ sudo umount -lfr edit/sys
 sudo umount -lfr edit/dev
 
 echo "Copying initramfs to casper..."
-cp edit/boot/initrd.img-* extract-cd/casper/initrd
+sudo cp edit/boot/initrd.img-* extract-cd/casper/initrd
 
 echo "Repacking..."
 
