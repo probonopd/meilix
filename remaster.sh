@@ -60,6 +60,8 @@ sudo apt-get -y purge xserver-xorg-video-nouveau || true
 # https://linuxconfig.org/how-to-disable-nouveau-nvidia-driver-on-ubuntu-18-04-bionic-beaver-linux
 sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+sudo rm -rf /lib/modules/*/kernel/drivers/gpu/drm/nouveau/ # Since it was still loaded even after doing all of the above
+# Do we also need to rebuild initrd here?
 
 echo "In chroot: Installing proper Broadcom driver..."
 sudo apt-get -y install b43-fwcutter 
