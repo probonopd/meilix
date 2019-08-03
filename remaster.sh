@@ -70,6 +70,9 @@ sudo apt-get -y --reinstall install bcmwl-kernel-source
 echo "In chroot: Disabling b43 which makes the screen flicker..."
 sudo bash -c "echo blacklist b43 > /etc/modprobe.d/blacklist-b43.conf"
 
+echo "In chroot: Updating initramfs..."
+sudo /usr/sbin/update-initramfs.distrib -u || sudo /usr/sbin/update-initramfs -u
+
 echo "In chroot: Delete temporary files..."
 ( cd /etc ; sudo rm resolv.conf ; sudo ln -s ../run/systemd/resolve/stub-resolv.conf resolv.conf )
 
@@ -83,6 +86,9 @@ echo "Exiting chroot..."
 sudo umount -lfr edit/proc
 sudo umount -lfr edit/sys
 sudo umount -lfr edit/dev
+
+echo "Copying initramfs to casper..."
+cp edit/boot/initrd.img-* extract-cd/casper/initrd
 
 echo "Repacking..."
 
