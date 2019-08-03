@@ -126,7 +126,7 @@ cd ..
 rm original.iso
 
 # Write update information for use by AppImageUpdate; https://github.com/AppImage/AppImageSpec/blob/master/draft.md#update-information
-echo "gh-releases-zsync|probonopd|system|latest|custom-*amd64.iso.zsync" | dd of="custom-desktop-amd64.iso" bs=1 seek=33651 count=512 conv=notrunc 2>/dev/null || true
+echo "gh-releases-zsync|probonopd|system|latest|custom-*amd64.iso.zsync" | dd of="custom-desktop-amd64.iso" bs=1 seek=33651 count=512 conv=notrunc
 
 # Write zsync file
 zsyncmake *.iso
