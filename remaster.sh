@@ -120,6 +120,7 @@ sudo mkisofs \
     -c isolinux/boot.cat \
     -no-emul-boot -boot-load-size 4 -boot-info-table \
 	-o ../custom-desktop-amd64.iso .
+sudo chown -R $USER .*iso
 
 cd ..
 
