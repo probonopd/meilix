@@ -53,7 +53,7 @@ apt-get -y autoremove
 
 echo "In chroot: Installing NVidia drivers..."
 sudo -E add-apt-repository -y ppa:graphics-drivers
-sudo apt-get -y install nvidia-340 nvidia-settings # run ubuntu-drivers devices on a local machine on this OS to find out the recmomended versions
+sudo apt-get -y install nvidia-384 nvidia-settings # run ubuntu-drivers devices on a local machine on this OS to find out the recmomended versions
 
 echo "In chroot: Disabling nouveau..."
 sudo apt-get -y purge xserver-xorg-video-nouveau || true
