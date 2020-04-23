@@ -15,7 +15,7 @@ echo "Extract .iso contents into dir 'extract-cd'..."
 
 mkdir extract-cd
 sudo rsync --exclude=/casper/filesystem.squashfs -a mnt/ extract-cd
-mkdir -p extract-cd/casper
+rm -rf extract-cd/casper/*
 ls extract-cd/casper || exit 1
 
 echo "Extract the SquashFS filesystem..."
@@ -90,7 +90,7 @@ sudo umount -lfr edit/sys
 sudo umount -lfr edit/dev
 
 echo "Copying initramfs to casper..."
-sudo cp edit/boot/initrd.img-* extract-cd/casper/initrd
+sudo cp edit/boot/initrd.img-5.3.0-28-generic extract-cd/casper/initrd
 
 echo "Repacking..."
 
