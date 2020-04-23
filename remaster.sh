@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Download the ISO to be customized..."
-URL=http://cdimage.ubuntu.com/xubuntu/releases/18.04/release/xubuntu-18.04.2-desktop-amd64.iso
+URL=http://cdimage.ubuntu.com/xubuntu/releases/18.04/release/xubuntu-18.04.4-desktop-amd64.iso
 wget -q "$URL"
 
 mv *.iso original.iso
@@ -15,6 +15,8 @@ echo "Extract .iso contents into dir 'extract-cd'..."
 
 mkdir extract-cd
 sudo rsync --exclude=/casper/filesystem.squashfs -a mnt/ extract-cd
+mkdir -p extract-cd/casper
+ls extract-cd/casper || exit 1
 
 echo "Extract the SquashFS filesystem..."
 
