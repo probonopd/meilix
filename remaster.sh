@@ -15,7 +15,6 @@ echo "Extract .iso contents into dir 'extract-cd'..."
 
 mkdir extract-cd
 sudo rsync --exclude=/casper/filesystem.squashfs -a mnt/ extract-cd
-sudo rm -rf extract-cd/casper/*
 ls extract-cd/casper || exit 1
 
 echo "Extract the SquashFS filesystem..."
