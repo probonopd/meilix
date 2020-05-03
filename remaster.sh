@@ -49,7 +49,7 @@ echo "In chroot: Run customization script..."
 chmod +x customize.sh && ./customize.sh && rm ./customize.sh
 
 echo "In chroot: Removing packages..."
-apt-get -y remove libreoffice-* gigolo thunderbird pidgin fonts-liberation 'fonts-smc*'
+apt-get -y remove libreoffice-* gigolo thunderbird pidgin fonts-liberation 'fonts-smc*' fonts-beng fonts-beng-extra fonts-deva fonts-deva-extra fonts-droid-fallback fonts-freefont-ttf fonts-gargi fonts-gujr-extra fonts-guru fonts-guru-extra fonts-kacst fonts-kacst-one fonts-kalapi fonts-khmeros-core fonts-lklug-sinhala fonts-lohit-beng-assamese fonts-lohit-beng-bengali fonts-lohit-deva fonts-lohit-knda fonts-lohit-mlym fonts-lohit-orya fonts-lohit-taml fonts-lohit-taml-classical fonts-nakula fonts-navilu fonts-noto-cjk fonts-noto-mono fonts-opensymbol fonts-pagul fonts-roboto fonts-roboto-hinted fonts-sahadeva fonts-samyak-deva fonts-samyak-gujr fonts-sarai fonts-sil-abyssinica fonts-sil-padauk fonts-symbola fonts-taml fonts-telu fonts-tibetan-machine fonts-tlwg-garuda fonts-tlwg-garuda-ttf fonts-tlwg-kinnari fonts-tlwg-laksaman-ttf fonts-tlwg-loma fonts-tlwg-loma-ttf fonts-tlwg-mono fonts-tlwg-norasi-ttf fonts-tlwg-purisa fonts-tlwg-purisa-ttf fonts-tlwg-sawasdee fonts-tlwg-typewriter-ttf fonts-tlwg-typist fonts-tlwg-typist-ttf fonts-tlwg-typo fonts-tlwg-umpush-ttf fonts-tlwg-waree fonts-tlwg-waree-ttf # fonts-noto-hinted is needed by xubuntu-default-settings
 # TODO: How to remove/replace fonts-dejavu-core without removing xubuntu-desktop and xubuntu-core?
 apt-get -y autoremove
 
