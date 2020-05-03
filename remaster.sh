@@ -49,7 +49,8 @@ echo "In chroot: Run customization script..."
 chmod +x customize.sh && ./customize.sh && rm ./customize.sh
 
 echo "In chroot: Removing packages..."
-apt-get -y remove libreoffice-* gigolo thunderbird pidgin 
+apt-get -y remove libreoffice-* gigolo thunderbird pidgin fonts-liberation 'fonts-smc*'
+# TODO: How to remove/replace fonts-dejavu-core without removing xubuntu-desktop and xubuntu-core?
 apt-get -y autoremove
 
 echo "In chroot: Installing NVidia drivers..."
